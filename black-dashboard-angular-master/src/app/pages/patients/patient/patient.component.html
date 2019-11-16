@@ -1,0 +1,95 @@
+
+<div class=" content">
+  <div class=" row">
+    
+    <div class=" col-md-12">
+      <div class=" card card-plain">
+        <div class=" card-header">
+          <h4 class=" card-title">Patient Table</h4>
+          <p class=" category">Here is a subtitle for this table</p>
+          <div class="example-button-row">
+           
+            <button type="button" rel="tooltip" class="btn btn-success btn-sm btn-icon" routerLink="/patient/add">
+              
+              <i class="tim-icons icon-simple-add"></i>
+            </button>  Add patient
+             
+        </div>
+        </div>
+        <div class=" card-body">
+          <div class=" table-responsive">
+            <table class=" table tablesorter" id="">
+              <thead class=" text-primary">
+                <tr>
+                  
+                  <th>Reg_No</th>
+                  <th>Faculty</th>
+                  <th>Name</th>
+                  <th>Permant Address</th>
+                  <th>Actions</th>
+                </tr>
+              </thead>
+              <tbody>
+                  <tr *ngFor="let element of patient">
+                  <td>{{element.reg_No}}</td>
+                  <td>{{element.faculty}}</td>
+                  <td>{{element.name}}</td>
+                  <td>{{element.address}}</td>
+                  <td>
+                      <button type="button" rel="tooltip" class="btn btn-success btn-sm btn-icon" (click)="editPatient(element._id)">
+                          <i class="tim-icons icon-settings"></i>
+                        </button>
+                       <!-- <button type="button" rel="tooltip" class="btn btn-danger btn-sm btn-icon" (click)="deletePatient(element._id)">
+                          <i class="tim-icons icon-trash-simple"></i>
+                        </button>-->
+                        
+                        <button
+                        type="button" rel="tooltip"
+                        class="btn btn-danger btn-sm btn-icon"
+      mwlConfirmationPopover
+      [popoverTitle]="popoverTitle"
+      [popoverMessage]="popoverMessage"
+      placement="left"
+      (confirm)="deletePatient(element._id)"
+      (cancel)="cancelClicked = true">
+      <i class="tim-icons icon-trash-simple"></i>
+    </button>
+
+
+   
+
+    <button class=" btn-sm btn-primary" type="button" (click)="TempsickInfor(element._id)"> <i class="tim-icons icon-simple-add"></i>add temp</button>
+                  </td>
+                  
+                </tr>
+              </tbody>
+              
+            </table>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<ng-template #content let-modal>
+  <div class=" modal-header">
+    <input
+      class=" form-control"
+      id="inlineFormInputGroup"
+      placeholder="SEARCH"
+      type="text"
+    />
+
+    <button
+      aria-label="Close"
+      class=" close"
+      data-dismiss="modal"
+      type="button"
+      (click)="modal.dismiss('Cross click')"
+    >
+      <i class=" tim-icons icon-simple-remove"> </i>
+    </button>
+  </div>
+
+</ng-template>
+

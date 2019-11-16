@@ -1,0 +1,61 @@
+
+<div class=" content">
+  <div class=" row">
+    <div class=" col-md-8">
+      <div class=" card">
+        <div class=" card-header"><h5 class=" title">Edit Profile</h5></div>
+        <div class=" card-body">
+          <form [formGroup]="tempForm" class = "temp-Form">
+            <div class=" row">
+
+              <div class=" col-md-5 pr-md-1">
+                  <div class=" form-group">
+                    <label for="reg_No"> Reg_No </label>
+                    <input class=" form-control" placeholder="Reg_No" type="text" formControlName="reg_no" #reg_no />
+                  </div>
+              </div>
+            
+            </div>
+            <div formGroupName="info">
+            <div class=" row">
+                <div class=" col-md-5 pr-md-1">
+                    <div class=" form-group">
+                      <label>date </label>
+                     <input class=" form-control"  placeholder="date" type="date" formControlName="date" #date />
+                    </div>
+                  </div>
+            
+              <div class=" col-md-6 pr-md-1">
+                <div class=" form-group">
+                  <label> feaver </label>
+                  <input class=" form-control"  placeholder="feaver" type="text" formControlName="feaver" #feaver />
+                </div>
+              </div>
+
+            </div>
+            <div class=" row">
+                <div class=" col-md-12">
+                  <div class=" form-group">
+                    <label>  sickness </label>
+                    <input class=" form-control" placeholder="sickness" type="text" formControlName="sickness" #sickness/>
+                  </div>
+                </div>
+              </div>
+            <div class=" row">
+              <div class=" col-md-12">
+                <div class=" form-group">
+                  <label> prescription </label>
+                  <input class=" form-control"  placeholder="prescription" type="text" formControlName="prescription" #prescription />
+                </div>
+              </div>
+            </div>
+          </div>
+            <button type="submit" class="btn btn-success animation-on-hover" (click) = "addTemp(this.tempForm.value)">Save</button>
+          </form>
+              
+       
+      </div> 
+        
+      </div>
+    </div>
+  </div>
